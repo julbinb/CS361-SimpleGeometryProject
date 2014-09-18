@@ -90,14 +90,17 @@ namespace SimpleGeometryMain.AppInterface.Commands
         /// <returns>Результат выполнения команды</returns>
         protected abstract ICommandResult ExecTriangleCalc();
 
-
-
         /// <summary>
         /// Инициализация треугольника по трём сторонам
         /// </summary>
         /// <param name="sides">Массив из трёх длин сторон</param>
         private void _Init(double[] sides)
         {
+            // могут быть заданы "плохие" точки, из-за которых стороны нулевые
+            // проверка <= на всякий случай
+            foreach (double side in sides)
+                if (side <= 0)
+                    return;
             // если треугольник с такими сторонами не существует, 
             // это некорректно заданная команда
             if (GeometryCalcs.TriangleExists(sides[0], sides[1], sides[2]))
