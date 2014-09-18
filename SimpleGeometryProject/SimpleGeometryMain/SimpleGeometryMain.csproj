@@ -41,11 +41,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppInterface\AbstractCommand.cs" />
+    <Compile Include="AppInterface\CommandResults\ErrorCommandResult.cs" />
+    <Compile Include="AppInterface\CommandResults\TypedCommandResult.cs" />
+    <Compile Include="AppInterface\Commands\BadCommand.cs" />
+    <Compile Include="AppInterface\Commands\DistanceCommand.cs" />
+    <Compile Include="AppInterface\Commands\HelpCommand.cs" />
+    <Compile Include="AppInterface\Commands\QuitCommand.cs" />
+    <Compile Include="AppInterface\Commands\TriangleAreaCommand.cs" />
+    <Compile Include="AppInterface\Commands\TriangleCommand.cs" />
+    <Compile Include="AppInterface\Commands\TriangleIsRightCommand.cs" />
+    <Compile Include="AppInterface\Commands\TrianglePerimCommand.cs" />
+    <Compile Include="AppInterface\Commands\UnknownCommand.cs" />
+    <Compile Include="AppInterface\ICommandResult.cs" />
+    <Compile Include="AppInterface\TextCommandInterpreter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SimpleGeometryLib\SimpleGeometryLib.csproj">
+      <Project>{1a126e2d-675f-49b4-8e47-eddb711b41c7}</Project>
+      <Name>SimpleGeometryLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
