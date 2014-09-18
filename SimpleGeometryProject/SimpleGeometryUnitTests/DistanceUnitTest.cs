@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using SimpleGeometry;
 
-namespace TestSimpleGeometry
+namespace SimpleGeometryUnitTests
 {
     [TestClass]
     public class DistanceUnitTest

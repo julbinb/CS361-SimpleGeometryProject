@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using SimpleGeometry;
 
-namespace TestSimpleGeometry
+namespace SimpleGeometryUnitTests
 {
     [TestClass]
     public class TriangleUnitTest
@@ -28,6 +28,10 @@ namespace TestSimpleGeometry
         private Triangle t9_isl = new Triangle(6, 7, 7);
         private Triangle t10_isl = new Triangle(0.7, 0.7, 1.36);
 
+        private Triangle t11_scal = new Triangle(11, 8, 9.5);
+        private Triangle t12_scal = new Triangle(new Point(-1.75, -0.6),
+            new Point(0.2, -2.4), new Point(1.375, 2));
+
         /// <summary>
         /// Тесты для проверки вида треугольника
         /// </summary>
@@ -47,6 +51,9 @@ namespace TestSimpleGeometry
             _CheckIsosceles(t8_isl, "t8_isl");
             _CheckIsosceles(t9_isl, "t9_isl");
             _CheckIsosceles(t10_isl, "t10_isl");
+
+            _CheckScalene(t11_scal, "t11_scal");
+            _CheckScalene(t12_scal, "t11_scal");
         }
 
         /// <summary>
@@ -77,8 +84,10 @@ namespace TestSimpleGeometry
             Assert.AreEqual(20, t9_isl.GetPerimeter(), DOUBLE_EPSILON,
                 "t9_isl perimeter");
 
-            Assert.AreEqual(2.76, t10_isl.GetPerimeter(), DOUBLE_EPSILON,
-                "t10_isl perimeter");
+            Assert.AreEqual(28.5, t11_scal.GetPerimeter(), DOUBLE_EPSILON,
+                "t11_scal perimeter");
+            Assert.AreEqual(11.273130733, t12_scal.GetPerimeter(), DOUBLE_EPSILON,
+                "t12_scal perimeter");
         }
 
         /// <summary>
@@ -120,6 +129,13 @@ namespace TestSimpleGeometry
             area = t10_isl.GetArea();
             Assert.AreEqual(0.11297008, area, DOUBLE_EPSILON,
                 "t10_isl area");
+
+            area = t11_scal.GetArea();
+            Assert.AreEqual(37.07967561, area, DOUBLE_EPSILON,
+                "t11_scal area");
+            area = t12_scal.GetArea();
+            Assert.AreEqual(5.3475, area, DOUBLE_EPSILON,
+                "t12_scal area");
         }
 
         private void _CheckEquilateral(Triangle t, string name)
@@ -147,6 +163,13 @@ namespace TestSimpleGeometry
         {
             Assert.IsFalse(t.IsEquilateral, name + " 1");
             Assert.IsTrue(t.IsIsosceles, name + " 2");
+            Assert.IsFalse(t.IsRightAngled, name + " 3");
+        }
+
+        private void _CheckScalene(Triangle t, string name)
+        {
+            Assert.IsFalse(t.IsEquilateral, name + " 1");
+            Assert.IsFalse(t.IsIsosceles, name + " 2");
             Assert.IsFalse(t.IsRightAngled, name + " 3");
         }
     }
