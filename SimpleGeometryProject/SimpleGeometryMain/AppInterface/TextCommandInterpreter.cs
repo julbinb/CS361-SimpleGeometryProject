@@ -218,8 +218,22 @@ namespace SimpleGeometryMain.AppInterface
             Debug.Assert(argsText.Length == 3, "_TryParseTriangleSides must be called for 3 args (3 sides)");
             sides = new double[argsText.Length];
             for (int i = 0; i < argsText.Length; ++i)
-                if (!double.TryParse(argsText[i], out sides[i]))
+                if (!_TryParseTriangleSide(argsText[i], out sides[i]))
                     return false;
+            return true;
+        }
+
+        /// <summary>
+        /// Пытается распарсить строку argText в вещественное значение
+        /// и проверяет, что значение положительно (сторона треугольника
+        /// должна быть положительной)
+        /// </summary>
+        private bool _TryParseTriangleSide(string argText, out double side)
+        {
+            if (!double.TryParse(argText, out side))
+                return false;
+            if (side <= 0)
+                return false;
             return true;
         }
 
