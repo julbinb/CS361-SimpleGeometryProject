@@ -88,7 +88,7 @@ namespace SimpleGeometry.Shapes.TriangleData
         public virtual double GetArea()
         {
             double p = GetPerimeter() / 2;
-            return p * (p - side1) * (p - side2) * (p - side3);
+            return Math.Sqrt(p * (p - side1) * (p - side2) * (p - side3));
         }
     }
 }
