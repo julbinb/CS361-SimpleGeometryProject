@@ -49,6 +49,79 @@ namespace TestSimpleGeometry
             _CheckIsosceles(t10_isl, "t10_isl");
         }
 
+        /// <summary>
+        /// Тесты для проверки вычисления периметра
+        /// </summary>
+        [TestMethod]
+        public void TestTrianglePerimeter()
+        {
+            Assert.AreEqual(10.5, t1_eq.GetPerimeter(), DOUBLE_EPSILON,
+                "t1_eq perimeter");
+            Assert.AreEqual(36.834, t2_eq.GetPerimeter(), DOUBLE_EPSILON,
+                "t2_eq perimeter");
+
+            Assert.AreEqual(12, t3_rh.GetPerimeter(), DOUBLE_EPSILON,
+                "t3_rh perimeter");
+            Assert.AreEqual(12, t4_rh.GetPerimeter(), DOUBLE_EPSILON,
+                "t4_rh perimeter");
+            Assert.AreEqual(12, t5_rh.GetPerimeter(), DOUBLE_EPSILON,
+                "t5_rh perimeter");
+
+            Assert.AreEqual(23.92126474, t6_rh.GetPerimeter(), DOUBLE_EPSILON,
+                "t6_rh perimeter");
+            Assert.AreEqual(23.92126474, t7_rh.GetPerimeter(), DOUBLE_EPSILON,
+                "t7_rh perimeter");
+
+            Assert.AreEqual(20, t8_isl.GetPerimeter(), DOUBLE_EPSILON,
+                "t8_isl perimeter");
+            Assert.AreEqual(20, t9_isl.GetPerimeter(), DOUBLE_EPSILON,
+                "t9_isl perimeter");
+
+            Assert.AreEqual(2.76, t10_isl.GetPerimeter(), DOUBLE_EPSILON,
+                "t10_isl perimeter");
+        }
+
+        /// <summary>
+        /// Тесты для проверки вычисления площади
+        /// </summary>
+        [TestMethod]
+        public void TestTriangleArea()
+        {
+            double area = t1_eq.GetArea();
+            Assert.AreEqual(5.30440559, area, DOUBLE_EPSILON,
+                "t1_eq area");
+            area = t2_eq.GetArea();
+            Assert.AreEqual(65.27635477, area, DOUBLE_EPSILON,
+                "t2_eq area");
+
+            area = t3_rh.GetArea();
+            Assert.AreEqual(6, area, DOUBLE_EPSILON,
+                "t3_rh area");
+            area = t4_rh.GetArea();
+            Assert.AreEqual(6, area, DOUBLE_EPSILON,
+                "t4_rh area");
+            area = t5_rh.GetArea();
+            Assert.AreEqual(6, area, DOUBLE_EPSILON,
+                "t5_rh area");
+
+            area = t6_rh.GetArea();
+            Assert.AreEqual(22, area, DOUBLE_EPSILON,
+                "t6_rh area");
+            area = t7_rh.GetArea();
+            Assert.AreEqual(22, area, DOUBLE_EPSILON,
+                "t7_rh area");
+
+            area = t8_isl.GetArea();
+            Assert.AreEqual(18.97366596, area, DOUBLE_EPSILON,
+                "t8_isl area");
+            area = t9_isl.GetArea();
+            Assert.AreEqual(18.97366596, area, DOUBLE_EPSILON,
+                "t9_isl area");
+            area = t10_isl.GetArea();
+            Assert.AreEqual(0.11297008, area, DOUBLE_EPSILON,
+                "t10_isl area");
+        }
+
         private void _CheckEquilateral(Triangle t, string name)
         {
             Assert.IsTrue(t.IsEquilateral, name + " 1");
