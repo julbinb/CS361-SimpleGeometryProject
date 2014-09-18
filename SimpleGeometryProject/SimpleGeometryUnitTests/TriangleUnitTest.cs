@@ -34,7 +34,47 @@ namespace TestSimpleGeometry
         [TestMethod]
         public void TestTriangleKind()
         {
+            _CheckEquilateral(t1_eq, "t1_eq");
+            _CheckEquilateral(t2_eq, "t2_eq");
 
+            _CheckRightAngledDiffSides(t3_rh, "t3_rh");
+            _CheckRightAngledDiffSides(t4_rh, "t4_rh");
+            _CheckRightAngledDiffSides(t5_rh, "t5_rh");
+
+            _CheckRightAngledIsosceles(t6_rh, "t6_rh");
+            _CheckRightAngledIsosceles(t7_rh, "t7_rh");
+
+            _CheckIsosceles(t8_isl, "t8_isl");
+            _CheckIsosceles(t9_isl, "t9_isl");
+            _CheckIsosceles(t10_isl, "t10_isl");
+        }
+
+        private void _CheckEquilateral(Triangle t, string name)
+        {
+            Assert.IsTrue(t.IsEquilateral, name + " 1");
+            Assert.IsTrue(t.IsIsosceles, name + " 2");
+            Assert.IsFalse(t.IsRightAngled, name + " 3");
+        }
+
+        private void _CheckRightAngledDiffSides(Triangle t, string name)
+        {
+            Assert.IsFalse(t.IsEquilateral, name + " 1");
+            Assert.IsFalse(t.IsIsosceles, name + " 2");
+            Assert.IsTrue(t.IsRightAngled, name + " 3");
+        }
+
+        private void _CheckRightAngledIsosceles(Triangle t, string name)
+        {
+            Assert.IsFalse(t.IsEquilateral, name + " 1");
+            Assert.IsFalse(t.IsIsosceles, name + " 2");
+            Assert.IsTrue(t.IsRightAngled, name + " 3");
+        }
+
+        private void _CheckIsosceles(Triangle t, string name)
+        {
+            Assert.IsFalse(t.IsEquilateral, name + " 1");
+            Assert.IsTrue(t.IsIsosceles, name + " 2");
+            Assert.IsFalse(t.IsRightAngled, name + " 3");
         }
     }
 }
