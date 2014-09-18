@@ -21,8 +21,8 @@ namespace TestSimpleGeometry
         private Triangle t5_rh = new Triangle(3, 5, 4);
         private Triangle t6_rh = new Triangle(
             new Point(-1, -2.5), new Point(-1, 6.3), new Point(4, -2.5));
-        //private Triangle t7_rh = new Triangle(
-        //    new Point(4, -2.5), new Point(-1, -2.5), new Point(-1, 6.3));
+        private Triangle t7_rh = new Triangle(
+            new Point(4, -2.5), new Point(-1, -2.5), new Point(-1, 6.3));
 
         private Triangle t8_isl = new Triangle(7, 6, 7);
         private Triangle t9_isl = new Triangle(6, 7, 7);

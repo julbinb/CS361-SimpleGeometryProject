@@ -66,7 +66,7 @@ namespace SimpleGeometry
         {
             // массив сторон треугольника
             double[] sides = new double[] { GeometryCalcs.Distance(v1, v2),
-                GeometryCalcs.Distance(v2, v1), GeometryCalcs.Distance(v1, v3) };
+                GeometryCalcs.Distance(v2, v3), GeometryCalcs.Distance(v1, v3) };
             _Init(sides);
         }
 
